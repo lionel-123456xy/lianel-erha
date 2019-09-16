@@ -1,0 +1,94 @@
+什么是Git？
+	分布式版本控制系统
+	协同开发
+
+分布式和集中式
+	集中式
+
+Linus   Linux
+
+Git的安装
+	https://git-scm.com/download/win
+	下载好之后一路下一步
+	安装完之后，在任意地方右键
+	打开git bash here
+	设置名字
+	$ git  config  --global  user.name  "名字"
+	设置邮箱
+	$ git  config  --global  user.email "邮箱地址"
+	查看名字
+	$ git  config  user.name
+	查看邮箱
+	$ git  congif  user.email
+
+创建版本库
+	1.创建一个空文件夹，作为版本库
+	2.在文件夹里面，打开git bash 
+	3.执行初始化命令
+		$ git  init
+
+把文件添加到版本库
+	1.创建一个文件放到仓库
+	2.查看仓库状态
+		$ git  status
+	3.把文件添加到版本库
+		$ git  add  文件名
+	4.提交修改
+		$ git  commit  -m  "信息"
+	5.查看文件版本信息
+		$ git  log
+
+时光穿梭
+	回到以前的版本
+	$ git  reset  --hard  版本
+	版本：
+		HEAD    代表当前版本
+		HEAD^   代表上一个版本
+		HEAD^^  代表上上一个版本
+		HEAD~100   代表上100个版本
+		版本号  回到指定版本
+	后悔药：
+		$ git  reflog：查看所有历史版本信息
+
+撤销修改
+	1.在未提交之前，撤销修改
+		$ git  checkout  --  文件名
+	2.提交到暂存区，撤销修改
+		清除暂存区的文件
+			$ git  reset  HEAD  文件名
+		替换工作区文件
+			$ git  checkout  --  文件名
+	3.在文件已经被commit之后，撤销修改
+		版本回退
+
+删除文件
+	版本回退
+		$ git  reset  --hard  HEAD
+	替换工作区文件
+		$ git  checkout  --  文件名
+		
+Github	
+	www.github.com
+	注册账号
+
+把本机的SSH Key添加到github
+	1.在本地创建SSH Key
+		$ ssh-keygen  -t  rsa  -C  "邮箱"
+	2.找到SSH Key所在的地方
+		C://User/用户名/.ssh
+	3.复制id_rsa.pub文件中的内容
+	4.到官网中添加钥匙
+	5.测试是否连接成功
+		$ ssh  -T  git@github.com
+
+把本地仓库上传到远程
+	1.需要在远程建立一个空的仓库
+	2.复制远程仓库的https或者ssh
+	3.把地址添加到本地
+		$ git  remote  add   origin  你的远程地址
+	4.把本地仓库推送到远程
+		$ git  push  -u  origin  master
+
+把远程仓库克隆到本地
+	$ git  clone  地址
+	同学A上传一个仓库到远程，同学下载A同学的仓库到本地
